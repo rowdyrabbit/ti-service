@@ -1,4 +1,4 @@
-package service;
+package services;
 
 import play.Application;
 import play.Logger;
@@ -61,7 +61,6 @@ public class MyUserService extends BaseUserService {
         return identity;
     }
 
-    @Override
     public void doLink(Identity current, Identity to) {
         User target = null;
 
@@ -81,7 +80,7 @@ public class MyUserService extends BaseUserService {
 
     @Override
     public void doSave(Token token) {
-        tokens.put(token.uuid, token);
+        tokens.put(token.getUuid(), token);
     }
 
     @Override
