@@ -9,7 +9,7 @@ GET        /                    controllers.Application.index()
 GET        /assets/*file        controllers.Assets.at(path="/public", file)
 
 
-
+GET        /api/v1/get-tweeter-intersection     controllers.Application.getCommonTweeters()
 
 
 # Login page
