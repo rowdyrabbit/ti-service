@@ -34,49 +34,39 @@ public class MyUserService extends BaseUserService {
     }
 
     @Override
-    public void doSave(Token token) {
-        tokens.put(token.uuid, token);
-    }
-
-    @Override
     public Identity doFind(IdentityId userId) {
         return users.get(userId.userId() + userId.providerId());
     }
 
+
+
+
+
+    /** The following methods aren't used as we are not working with tokens, only identities which are provided by third parties. Therefore they have empty implementations. **/
+    @Override
+    public void doSave(Token token) {
+        //Not using a UsernamePassword provider.
+    }
+
     @Override
     public Token doFindToken(String tokenId) {
-        return tokens.get(tokenId);
+        //Not using a UsernamePassword provider.
+        return null;
     }
 
     @Override
     public Identity doFindByEmailAndProvider(String email, String providerId) {
-        Identity result = null;
-        for( Identity user : users.values() ) {
-            Option<String> optionalEmail = user.email();
-            if ( user.identityId().providerId().equals(providerId) &&
-                    optionalEmail.isDefined() &&
-                    optionalEmail.get().equalsIgnoreCase(email))
-            {
-                result = user;
-                break;
-            }
-        }
-        return result;
+        //Not using a UsernamePassword provider.
+        return null;
     }
 
     @Override
     public void doDeleteToken(String uuid) {
-        tokens.remove(uuid);
+        //Not using a UsernamePassword provider.
     }
 
     @Override
     public void doDeleteExpiredTokens() {
-        Iterator<Map.Entry<String,Token>> iterator = tokens.entrySet().iterator();
-        while ( iterator.hasNext() ) {
-            Map.Entry<String, Token> entry = iterator.next();
-            if ( entry.getValue().isExpired() ) {
-                iterator.remove();
-            }
-        }
+        //Not using a UsernamePassword provider.
     }
 }
