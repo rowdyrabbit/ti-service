@@ -16,6 +16,8 @@ GET        /api/v1/get-tweeter-intersection     controllers.Application.getCommo
 GET     /login                      securesocial.controllers.LoginPage.login
 GET     /logout                     securesocial.controllers.LoginPage.logout
 
+GET     /twitter                    controllers.Twitter.auth()
+
 
 # Providers entry points
 GET     /authenticate/:provider     securesocial.controllers.ProviderController.authenticate(provider)
