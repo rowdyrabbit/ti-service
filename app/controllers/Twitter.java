@@ -1,5 +1,6 @@
 package controllers;
 
+import play.Play;
 import play.libs.F.Option;
 import play.libs.OAuth;
 import play.libs.OAuth.ConsumerKey;
@@ -11,7 +12,8 @@ import play.mvc.Result;
 import com.google.common.base.Strings;
 
 public class Twitter extends Controller {
-    static final ConsumerKey KEY = new ConsumerKey("...", "...");
+    static final ConsumerKey KEY = new ConsumerKey(Play.application().configuration().getString("twitter.consumer.key"),
+            Play.application().configuration().getString("twitter.consumer.secret"));
 
     private static final ServiceInfo SERVICE_INFO = new ServiceInfo("https://api.twitter.com/oauth/request_token",
             "https://api.twitter.com/oauth/access_token",
