@@ -12,8 +12,8 @@ import play.mvc.Result;
 import com.google.common.base.Strings;
 
 public class Twitter extends Controller {
-    static final ConsumerKey KEY = new ConsumerKey(Play.application().configuration().getString("twitter.consumer.key"),
-            Play.application().configuration().getString("twitter.consumer.secret"));
+    static final ConsumerKey KEY = new ConsumerKey(Play.application().configuration().getString("securesocial.twitter.consumerKey"),
+            Play.application().configuration().getString("securesocial.twitter.consumerSecret"));
 
     private static final ServiceInfo SERVICE_INFO = new ServiceInfo("https://api.twitter.com/oauth/request_token",
             "https://api.twitter.com/oauth/access_token",
@@ -25,8 +25,7 @@ public class Twitter extends Controller {
     public static Result auth() {
         String verifier = request().getQueryString("oauth_verifier");
         if (Strings.isNullOrEmpty(verifier)) {
-//            String url = controllers.routes.Twitter.auth().absoluteURL(request());
-            String url = "";
+            String url = controllers.routes.Twitter.auth().absoluteURL(request());
 
             RequestToken requestToken = TWITTER.retrieveRequestToken(url);
             saveSessionTokenPair(requestToken);

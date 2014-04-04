@@ -17,6 +17,7 @@ GET     /login                      securesocial.controllers.LoginPage.login
 GET     /logout                     securesocial.controllers.LoginPage.logout
 
 GET     /twitter                    controllers.Twitter.auth()
+GET     /twitter-test               controllers.Application.index2()
 
 
 # Providers entry points
