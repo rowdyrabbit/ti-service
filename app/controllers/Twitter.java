@@ -12,17 +12,29 @@ import play.mvc.Result;
 import com.google.common.base.Strings;
 
 public class Twitter extends Controller {
-    static final ConsumerKey KEY = new ConsumerKey(Play.application().configuration().getString("securesocial.twitter.consumerKey"),
-            Play.application().configuration().getString("securesocial.twitter.consumerSecret"));
+    private static final String twitterConsumerKey = Play.application().configuration().getString("securesocial.twitter.consumerKey");
+    private static final String twitterConsumerSecret = Play.application().configuration().getString("securesocial.twitter.consumerSecret");
+    private static final String twitterRequestTokenUrl = Play.application().configuration().getString("securesocial.twitter.apiRequestTokenUrl");
+    private static final String twitterAccessTokenUrl = Play.application().configuration().getString("securesocial.twitter.apiAccessTokenUrl");
+    private static final String twitterAuthorizationUrl = Play.application().configuration().getString("securesocial.twitter.apiAuthorizationUrl");
 
-    private static final ServiceInfo SERVICE_INFO = new ServiceInfo("https://api.twitter.com/oauth/request_token",
-            "https://api.twitter.com/oauth/access_token",
-            "https://api.twitter.com/oauth/authorize",
+    static final ConsumerKey KEY = new ConsumerKey(twitterConsumerKey, twitterConsumerSecret);
+
+    private static final ServiceInfo SERVICE_INFO = new ServiceInfo(twitterRequestTokenUrl,
+            twitterAccessTokenUrl,
+            twitterAuthorizationUrl,
             KEY);
 
     private static final OAuth TWITTER = new OAuth(SERVICE_INFO);
 
     public static Result auth() {
+
+        System.out.println(twitterConsumerKey);
+        System.out.println(twitterConsumerSecret);
+        System.out.println(twitterRequestTokenUrl);
+        System.out.println(twitterAccessTokenUrl);
+        System.out.println(twitterAuthorizationUrl);
+
         String verifier = request().getQueryString("oauth_verifier");
         if (Strings.isNullOrEmpty(verifier)) {
             String url = controllers.routes.Twitter.auth().absoluteURL(request());

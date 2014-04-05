@@ -12,12 +12,10 @@ GET        /assets/*file        controllers.Assets.at(path="/public", file)
 GET        /api/v1/get-tweeter-intersection     controllers.Application.getCommonTweeters()
 
 
-# Login page
-GET     /login                      securesocial.controllers.LoginPage.login
-GET     /logout                     securesocial.controllers.LoginPage.logout
+GET     /home-timeline              controllers.Application.getHomeTimeline()
 
-GET     /twitter                    controllers.Twitter.auth()
-GET     /twitter-test               controllers.Application.index2()
+GET     /auth                       controllers.Twitter.auth()
+
 
 
 # Providers entry points
