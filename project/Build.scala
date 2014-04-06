@@ -12,12 +12,17 @@ object ApplicationBuild extends Build {
     javaJdbc,
     javaEbean,
     cache,
-    "ws.securesocial" %% "securesocial" % "2.1.3"
+    "ws.securesocial" %% "securesocial" % "2.1.3",
+    "com.typesafe" %% "play-plugins-redis" % "2.2.0",
+    "com.typesafe.play" %% "play-cache" % "2.2.0"
+
   )
 
   val main = play.Project(appName, appVersion, appDependencies).settings(
-    resolvers += Resolver.url("sbt-plugin-releases", new URL("http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/"))(Resolver.ivyStylePatterns)
-  )
+    resolvers += Resolver.url("sbt-plugin-releases", new URL("http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/"))(Resolver.ivyStylePatterns),
+    resolvers += Resolver.url("Typesafe repository", new URL("http://repo.typesafe.com/typesafe/releases/"))(Resolver.ivyStylePatterns),
+    resolvers += Resolver.url("play-redis", new URL("http://pk11-scratch.googlecode.com/svn/trunk"))(Resolver.ivyStylePatterns)
 
+  )
 
 }
