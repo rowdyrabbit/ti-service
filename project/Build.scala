@@ -21,7 +21,7 @@ object ApplicationBuild extends Build {
   val main = play.Project(appName, appVersion, appDependencies).settings(
     resolvers += Resolver.url("sbt-plugin-releases", new URL("http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/"))(Resolver.ivyStylePatterns),
     resolvers += Resolver.url("Typesafe repository", new URL("http://repo.typesafe.com/typesafe/releases/"))(Resolver.ivyStylePatterns),
-    resolvers += Resolver.url("pk11 repo", new URL("http://pk11-scratch.googlecode.com/svn/trunk"))(Resolver.ivyStylePatterns)
+    resolvers += "pk11 repo" at "http://pk11-scratch.googlecode.com/svn/trunk"
 
   )
 
