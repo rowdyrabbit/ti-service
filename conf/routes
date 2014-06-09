@@ -3,22 +3,24 @@
 # ~~~~
 
 # Home page
-GET        /                    controllers.Application.index()
+GET         /                                       controllers.Application.index()
 
 # Map static resources from the /public folder to the /assets URL path
-GET        /assets/*file        controllers.Assets.at(path="/public", file)
+GET         /assets/*file                           controllers.Assets.at(path="/public", file)
 
 
-GET        /api/v1/get-tweeter-intersection     controllers.Application.getCommonTweeters()
+GET         /api/v1/get-tweeter-intersection        controllers.Application.getCommonTweeters()
 
 
-GET     /home-timeline              controllers.Application.getHomeTimeline()
+GET         /home-timeline                          controllers.Application.getHomeTimeline()
 
-GET     /auth                       controllers.Twitter.auth()
+GET         /auth                                   controllers.Twitter.auth()
+
+GET         /login                                  securesocial.controllers.LoginPage.login
 
 
 
 # Providers entry points
-GET     /authenticate/:provider     securesocial.controllers.ProviderController.authenticate(provider)
-POST    /authenticate/:provider     securesocial.controllers.ProviderController.authenticateByPost(provider)
-GET     /not-authorized             securesocial.controllers.ProviderController.notAuthorized
+GET         /authenticate/:provider                 securesocial.controllers.ProviderController.authenticate(provider)
+POST        /authenticate/:provider                 securesocial.controllers.ProviderController.authenticateByPost(provider)
+GET         /not-authorized                         securesocial.controllers.ProviderController.notAuthorized

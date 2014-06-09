@@ -6,6 +6,7 @@ object ApplicationBuild extends Build {
 
   val appName         = "ti-service"
   val appVersion      = "1.0-SNAPSHOT"
+  val scalaVersion    = "2.10.3"
 
   val appDependencies = Seq(
     javaCore,

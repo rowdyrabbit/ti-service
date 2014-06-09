@@ -14,9 +14,9 @@ import com.google.common.base.Strings;
 public class Twitter extends Controller {
     private static final String twitterConsumerKey = Play.application().configuration().getString("securesocial.twitter.consumerKey");
     private static final String twitterConsumerSecret = Play.application().configuration().getString("securesocial.twitter.consumerSecret");
-    private static final String twitterRequestTokenUrl = Play.application().configuration().getString("securesocial.twitter.apiRequestTokenUrl");
-    private static final String twitterAccessTokenUrl = Play.application().configuration().getString("securesocial.twitter.apiAccessTokenUrl");
-    private static final String twitterAuthorizationUrl = Play.application().configuration().getString("securesocial.twitter.apiAuthorizationUrl");
+    private static final String twitterRequestTokenUrl = Play.application().configuration().getString("securesocial.twitter.requestTokenUrl");
+    private static final String twitterAccessTokenUrl = Play.application().configuration().getString("securesocial.twitter.accessTokenUrl");
+    private static final String twitterAuthorizationUrl = Play.application().configuration().getString("securesocial.twitter.authorizationUrl");
 
     static final ConsumerKey KEY = new ConsumerKey(twitterConsumerKey, twitterConsumerSecret);
 
@@ -29,8 +29,8 @@ public class Twitter extends Controller {
 
     public static Result auth() {
 
-        System.out.println(twitterConsumerKey);
-        System.out.println(twitterConsumerSecret);
+        System.out.println("consumer key: " + twitterConsumerKey);
+        System.out.println("consumer secret" + twitterConsumerSecret);
         System.out.println(twitterRequestTokenUrl);
         System.out.println(twitterAccessTokenUrl);
         System.out.println(twitterAuthorizationUrl);
