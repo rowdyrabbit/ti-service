@@ -1,10 +1,22 @@
-// Comment to get more information during initialization
-logLevel := Level.Warn
-
-// The Typesafe repository
 resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/"
 
-// Use the Play sbt plugin for Play projects
+resolvers += "sbt-plugin-releases" at "http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/"
+
+resolvers += "pk11 repo" at "http://pk11-scratch.googlecode.com/svn/trunk"
+
+// The Play plugin
 addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.2.2")
 
-addSbtPlugin("com.github.mpeltonen" % "sbt-idea" % "1.6.0")
+// web plugins
+
+addSbtPlugin("com.typesafe.sbt" % "sbt-coffeescript" % "1.0.0")
+
+addSbtPlugin("com.typesafe.sbt" % "sbt-less" % "1.0.0")
+
+addSbtPlugin("com.typesafe.sbt" % "sbt-jshint" % "1.0.0")
+
+addSbtPlugin("com.typesafe.sbt" % "sbt-rjs" % "1.0.1")
+
+addSbtPlugin("com.typesafe.sbt" % "sbt-digest" % "1.0.0")
+
+addSbtPlugin("com.typesafe.sbt" % "sbt-mocha" % "1.0.0")

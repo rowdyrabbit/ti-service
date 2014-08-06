@@ -13,7 +13,6 @@ object ApplicationBuild extends Build {
     javaJdbc,
     javaEbean,
     cache,
-    "ws.securesocial" %% "securesocial" % "2.1.3",
     "com.typesafe" %% "play-plugins-redis" % "2.2.0",
     "com.typesafe.play" %% "play-cache" % "2.2.0"
 

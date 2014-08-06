@@ -16,11 +16,13 @@ GET         /home-timeline                          controllers.Application.getH
 
 GET         /auth                                   controllers.Twitter.auth()
 
-GET         /login                                  securesocial.controllers.LoginPage.login
+
+GET         /hacker-school-twitter                  controllers.Application.getHackerSchoolTwitterAccounts()
 
 
 
 # Providers entry points
-GET         /authenticate/:provider                 securesocial.controllers.ProviderController.authenticate(provider)
-POST        /authenticate/:provider                 securesocial.controllers.ProviderController.authenticateByPost(provider)
-GET         /not-authorized                         securesocial.controllers.ProviderController.notAuthorized
+#GET         /login                                  securesocial.controllers.LoginPage.login
+#GET         /authenticate/:provider                 securesocial.controllers.ProviderController.authenticate(provider)
+#POST        /authenticate/:provider                 securesocial.controllers.ProviderController.authenticateByPost(provider)
+#GET         /not-authorized                         securesocial.controllers.ProviderController.notAuthorized
